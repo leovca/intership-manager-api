@@ -16,6 +16,7 @@ export class GrantorService {
     const concedenteExists = await this.grantorRepository.findOne({
       where: { documentNumber: createConcedenteDto.documentNumber },
     });
+    console.log(JSON.stringify(createConcedenteDto));
     if (concedenteExists) {
       throw new Error('Concedente já cadastrado');
     }

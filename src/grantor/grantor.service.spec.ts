@@ -1,9 +1,9 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { GrantorService } from './grantor.service';
-import { mockDeep, DeepMockProxy } from 'jest-mock-extended';
 import { DocumentType, GrantorEntity } from './entity/grantor.entity';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
+import { CreateGrantorDto } from './dto/create-grantor.dto';
 
 const grantorList: GrantorEntity[] = [
   new GrantorEntity({

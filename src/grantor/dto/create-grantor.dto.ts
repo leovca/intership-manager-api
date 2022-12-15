@@ -18,5 +18,5 @@ export class CreateGrantorDto {
   documentNumber?: string;
 
   @ApiProperty({ enum: ['CNPJ', 'CPF'] })
-  documentType?: DocumentType;
+  documentType?: DocumentType | string;
 }

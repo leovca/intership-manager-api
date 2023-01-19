@@ -1,11 +1,5 @@
-import {
-  Column,
-  CreateDateColumn,
-  DeleteDateColumn,
-  Entity,
-  PrimaryGeneratedColumn,
-  UpdateDateColumn,
-} from 'typeorm';
+import { BaseCustomEntity } from 'src/shared/Entities/base-custom.entity';
+import { Column, Entity } from 'typeorm';
 
 export enum DocumentType {
   CPF = 'CPF',
@@ -13,10 +7,7 @@ export enum DocumentType {
 }
 
 @Entity()
-export class GrantorEntity {
-  @PrimaryGeneratedColumn('uuid')
-  id?: string;
-
+export class GrantorEntity extends BaseCustomEntity {
   @Column({ name: 'name' })
   name?: string;
 
@@ -71,16 +62,8 @@ export class GrantorEntity {
   @Column({ name: 'observation', nullable: true })
   observation?: string;
 
-  @CreateDateColumn({ name: 'created_at' })
-  createdAt?: string;
-
-  @UpdateDateColumn({ name: 'updated_at' })
-  updatedAt?: string;
-
-  @DeleteDateColumn({ name: 'deleted_at' })
-  deletedAt?: string;
-
   constructor(grantor?: Partial<GrantorEntity>) {
+    super();
     this.id = grantor?.id;
     this.name = grantor?.name;
     this.legalName = grantor?.legalName;
